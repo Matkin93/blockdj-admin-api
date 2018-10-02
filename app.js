@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const apiRouter = require('./routers/api');
 const bodyParser = require('body-parser');
+const jwt = require('express-jwt');
+const jwks = require('jwks-rsa');
 const {DB_URL = require('./config').DB_URL} = process.env;
 
 const app = express();
