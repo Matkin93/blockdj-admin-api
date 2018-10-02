@@ -42,7 +42,7 @@ app.use('/*', (req, res, next) => {
     next({msg: 'Page not found', status: 404});
 });
 
-app.use(({msg, status}, req, res, next) => {
+app.use((err, req, res, next) => {
     if (status) res.status(status).send({status, msg});
     else res.status(500).send({msg:'Internal server error', status: 500});
 });

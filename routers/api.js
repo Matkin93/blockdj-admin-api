@@ -1,5 +1,6 @@
 const apiRouter = require('express').Router();
 const cityRouter = require('./city');
+const areaRouter = require('./area');
 
 apiRouter.route('/')
     .get((req, res, next) => {
@@ -7,5 +8,6 @@ apiRouter.route('/')
     });
 
 apiRouter.use('/cities', cityRouter);
+apiRouter.use('/areas', areaRouter);
     
 module.exports = apiRouter;

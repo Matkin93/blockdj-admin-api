@@ -1,3 +1,4 @@
 module.exports = {
-    City: require('./City')    
+    City: require('./City'),    
+    Area: require('./Area')
 };
