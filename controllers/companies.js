@@ -8,7 +8,6 @@ module.exports.getCompanies = (req, res, next) => {
         .catch(err => next(err));
 }
 
-
 module.exports.addCompany = (req, res, next) => {
     Company.create({...req.body})
         .then(company => {

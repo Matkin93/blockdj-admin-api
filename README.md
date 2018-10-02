@@ -70,5 +70,22 @@ Admin api repo for blockdj
 			}</pre>
 			</td>
 		</tr> 
+		<tr>
+			<td>/companies</td>
+			<td>GET</td>
+			<td>Returns list of all companies</td>
+		</tr>
+		<tr>
+			<td>/companies</td>
+			<td>POST</td>
+			<td>Add a new company<br><br><pre>{
+	"user_id":"****AUTH0 User ID here****",
+	"name": "Dave's Jazz Bar",
+	"details": "Blah, Blah, Jazz Bar",
+	"website": "http://davesjazzbar.com",
+	"facebook_url": "http://facebook.com/davesjazzbar",
+	"instagram_url":"http://instagram.com/davesjazzbar"
+}</pre>
+		</tr>
 	</tbody>
 </table>

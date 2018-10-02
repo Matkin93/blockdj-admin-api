@@ -1,7 +1,8 @@
 const companyRouter = require('express').Router();
-const {getCompanies} = require('../controllers/companies');
+const {getCompanies, addCompany} = require('../controllers/companies');
 
 companyRouter.route('/')
     .get(getCompanies)
+    .post(addCompany)
 
 module.exports = companyRouter;
