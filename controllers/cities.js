@@ -17,7 +17,7 @@
  }
 
  module.exports.getCityById = (req, res, next) => {
-     City.find({_id: req.params.city_id})
+     City.findById(req.params.city_id)
         .then(city => {
             res.status(200).send({city});
         })

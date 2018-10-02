@@ -1,8 +1,8 @@
 const areaRouter = require('express').Router();
-const {getAreas, addArea} = require('../controllers/areas');
+const {getAreaById, updateAreaById} = require('../controllers/areas');
 
-areaRouter.route('/')
-    .get(getAreas)
-    .post(addArea);
+areaRouter.route('/:area_id')
+    .get(getAreaById)
+    .put(updateAreaById)
 
 module.exports = areaRouter;
