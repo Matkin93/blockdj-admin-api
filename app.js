@@ -8,6 +8,20 @@ const {DB_URL = require('./config').DB_URL} = process.env;
 
 const app = express();
 
+const jwtCheck = jwt({
+    secret: jwks.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri: "https://blockdj.eu.auth0.com/.well-known/jwks.json"
+    }),
+    audience: 'http://blockdj-admin-api.example.com',
+    issuer: "https://blockdj.eu.auth0.com/",
+    algorithms: ['RS256']
+});
+
+app.use(jwtCheck)
+
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
