@@ -1,8 +1,11 @@
 const apiRouter = require('express').Router();
+const cityRouter = require('./city');
 
 apiRouter.route('/')
     .get((req, res, next) => {
         res.status(200).send('testing')
     });
+
+apiRouter.use('/cities', cityRouter);
     
 module.exports = apiRouter;
