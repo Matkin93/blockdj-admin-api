@@ -4,7 +4,9 @@ const apiRouter = require('./routers/api');
 const bodyParser = require('body-parser');
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
-const {DB_URL = require('./config').DB_URL} = process.env;
+const { DB_URL = require('./config').DB_URL } = process.env;
+const cors = require('cors');
+
 
 const app = express();
 
@@ -20,6 +22,8 @@ const jwtCheck = jwt({
     algorithms: ['RS256']
 });
 
+app.use(cors())
+
 app.use(jwtCheck)
 
 app.use(bodyParser.json());
@@ -31,7 +35,7 @@ app.use((req, res, next) => {
     next();
 });
 
-mongoose.connect(DB_URL, {useNewUrlParser: true})
+mongoose.connect(DB_URL, { useNewUrlParser: true })
     .then(() => {
         console.log(`Connected to Mongo via ${DB_URL}...`);
     });
@@ -39,12 +43,12 @@ mongoose.connect(DB_URL, {useNewUrlParser: true})
 app.use('/api', apiRouter);
 
 app.use('/*', (req, res, next) => {
-    next({msg: 'Page not found', status: 404});
+    next({ msg: 'Page not found', status: 404 });
 });
 
-app.use(({msg, status}, req, res, next) => {
-    if (status) res.status(status).send({status, msg});
-    else res.status(500).send({msg:'Internal server error', status: 500});
+app.use(({ msg, status }, req, res, next) => {
+    if (status) res.status(status).send({ status, msg });
+    else res.status(500).send({ msg: 'Internal server error', status: 500 });
 });
 
 module.exports = app;
