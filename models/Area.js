@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const polygonSchema = new mongoose.Schema({
-    type: {
-        type: String,
-        enum: ['Polygon'],
-        required: true
-    },
+    // type: {
+    //     type: String,
+    //     enum: ['Polygon'],
+    //     required: true
+    // },
     coordinates: {
-        type: [[[Number]]],
+        type: [{latitude: Number, longitude: Number}],
         required: true
     }
 });
