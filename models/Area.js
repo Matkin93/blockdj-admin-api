@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const polygonSchema = new mongoose.Schema({
-    type: {
-        type: String,
-        enum: ['Polygon'],
-        required: true
-    },
+    // type: {
+    //     type: String,
+    //     enum: ['Polygon'],
+    //     required: true
+    // },
     coordinates: {
-        type: [[[Number]]],
+        type: [{ latitude: Number, longitude: Number }],
         required: true
     }
 });
@@ -33,7 +33,7 @@ const AreaSchema = new Schema({
         type: String
     },
     bounds: {
-        type: polygonSchema,      
+        type: polygonSchema,
         required: true
     },
     created_at: {
@@ -42,7 +42,7 @@ const AreaSchema = new Schema({
     },
     updated_at: {
         type: Date
-    }     
+    }
 });
 
 module.exports = mongoose.model('areas', AreaSchema);
