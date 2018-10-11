@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const polygonSchema = new mongoose.Schema({
-    // type: {
-    //     type: String,
-    //     enum: ['Polygon'],
-    //     required: true
-    // },
-    coordinates: {
-        type: [{ latitude: Number, longitude: Number }],
-        required: true
-    }
-});
+// const polygonSchema = new mongoose.Schema({
+//     // type: {
+//     //     type: String,
+//     //     enum: ['Polygon'],
+//     //     required: true
+//     // },
+//     coordinates: {
+//         type: [{ latitude: Number, longitude: Number }],
+//         required: true
+//     }
+// });
 
 const AreaSchema = new Schema({
     city: {
@@ -33,7 +33,7 @@ const AreaSchema = new Schema({
         type: String
     },
     bounds: {
-        type: polygonSchema,
+        type: [{ latitude: Number, longitude: Number }],
         required: true
     },
     created_at: {
