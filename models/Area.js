@@ -29,7 +29,7 @@ const AreaSchema = new Schema({
     image_url: {
         type: String,
     },
-    colour: {
+    areaColor: {
         type: String
     },
     bounds: {
