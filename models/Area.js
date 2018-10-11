@@ -30,7 +30,7 @@ const AreaSchema = new Schema({
         type: String,
     },
     areaColor: {
-        type: String
+        type: String,
     },
     bounds: {
         type: [{ latitude: Number, longitude: Number }],
